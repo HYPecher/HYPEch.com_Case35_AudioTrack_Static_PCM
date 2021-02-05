@@ -1,4 +1,4 @@
-package com.hypech.static_pcm;
+package com.hypech.case35_at_static_pcm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private PlayThread mPlayThread;
+    private PlayThread tPlayThread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +21,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.btn_play){
-            if (null != mPlayThread) {
-                mPlayThread.stop();
-                mPlayThread = null;
+        if (v.getId() == R.id.btn_play) {
+            if (null != tPlayThread) {
+                tPlayThread.stopPlay();
+                tPlayThread = null;
             }
-            mPlayThread = new PlayThread(this, "raw/tts1.pcm");
-            mPlayThread.start();
+            tPlayThread = new PlayThread(this, R.raw.mihuan);
+            tPlayThread.start();
         }
     }
 }
